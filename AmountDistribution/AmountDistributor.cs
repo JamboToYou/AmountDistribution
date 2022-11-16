@@ -33,7 +33,12 @@
 
 			for (int i = 0; i < sums.Length; i++)
 			{
-				sums[i] *= koef;
+				var exactValue = sums[i] * koef;
+				var sum = Math.Round(exactValue, 2);
+
+				sums[sums.Length - 1] += exactValue - sum;
+
+				sums[i] = sum;
 			}
 
 			return sums;
